@@ -1,0 +1,66 @@
+  <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img id="logo" src="styles/Images/Inline-Logo.png">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">View Cart<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+{{!-- so we don't have this table yet I don't think but we're getting there --}}
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+<h2 id="carttitle">Your Cart</h2>
+        {{!-- {{#each CartProducts}}
+            <img src="/styles/Images/{{this.dataValues.image_url}}" class="cartImages"></img>
+            <a href="/product/"{{this.dataValues.id}}><button type="button" id="viewdetails" class="btn btn-dark">View Details</button></a>
+            <p id = "cart-name">{{this.dataValues.product_name}}</p>
+            <p id = "cart-price">${{this.dataValues.price}}</p>
+            <button type="button" id="remove-from-cart" id={{this.dataValues.id}} class="btn btn-secondary">Remove From Cart</button>
+        {{/each}} --}}
+         <div id="cartdisplay"></div>
+        <a href="/purchase">
+         <button class="btn btn-success" id="checkoutbtn">Checkout</button>
+         </a>
+
+<div class="col-md-3"></div>
+       
+<div class="col-md-3"></div>
+</div>
+
+
+<script>
+    // By default display the content from localStorage
+    let cartImage = JSON.parse(localStorage.getItem("cartImage"))
+    let getItem = JSON.parse(localStorage.getItem("cartArray"))
+    let itemPrice = JSON.parse(localStorage.getItem("cartPrice"))
+    let totalCost = JSON.parse(localStorage.getItem("calculatedCost"))
+    for (var i = 0; i < cartImage.length; i++) {
+        $("#cartdisplay").append("<br><img style='height: 200px; width: 200px;' src='" + cartImage[i] + "'><br>");
+        $("#cartdisplay").append(getItem[i]);
+        $("#cartdisplay").append("$" + itemPrice[i] + ".00");
+    }
+    if (totalCost != undefined) {
+        $("#cartdisplay").append("<br>Total Cost: $" + localStorage.getItem("calculatedCost") + ".00");
+    }
+    else {
+        $("#cartdisplay").append("Cart is Empty!")
+    }
+ </script>

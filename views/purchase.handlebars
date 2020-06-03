@@ -1,0 +1,50 @@
+
+  <!--Nav Bar-->
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <img id="logo" src="styles/Images/Inline-Logo.png">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop">Shop<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="view-cart" class="nav-link" href="/cart">View Cart</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+<h2 style="text-align: center;" id="givemoney">Give Us Your Money</h2>
+
+<div class="col-5" id="paymentform">
+    <form action="/charge" method="POST" class="flex flex-col w-1/3">
+        <input class="bg-transparent text-grey p-2 h-10 mb-4" type="text" name="name" placeholder="Name">
+        <input type="email" class="bg-transparent text-grey p-2 h-10 mb-4" name="email" placeholder="Email">
+        <input id="amount" type="hidden" name="amount" value="">
+        
+
+        <div id="card-element" class="bg-transparent text-grey p-2 h-10 mb-4"></div>
+        <div id="card-errors" role="alert"></div>
+        <button class="text-grey bg-purple-900 p-4 rounded" id="submitpymt">Submit Payment</button>
+    </form>
+</div>
+
+ <div class="footer">
+        <footer>
+            <p id="copyright">Copyright© Essy | Designed & Developed by the Green Team</p>
+        </footer>
+
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="card.js"></script>
